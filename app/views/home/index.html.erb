@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1 class="display-4 text-center mb-4">Find Your Developer</h1>
+  <h1 class="display-4 text-center mb-4 disply-4-site">Find Your Developer</h1>
   <div class="col-md-11 mx-md-auto">
     <div class="card mb-3">
       <div class="card-body p-5">
@@ -21,10 +21,12 @@
       </div>
     </div>
   </div>
-  <p class="lead text-center">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <div class="col-md-10 mx-md-auto">
+    <p class="lead text-center lead-p-site">We provide you developers of all types like mobile developers, web developers, frontend developers, backend developers or fullstack developers from all over the world. Find developers by skills or location. </p>
+    <hr class="my-4">
+    <div class="text-center">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
   </div>
 </div>
 
@@ -46,13 +48,6 @@
 
 <script>
   var placeSearch, autocomplete;
-  // var componentForm = {
-  //   locality: 'long_name',
-  //   administrative_area_level_1: 'short_name',
-  //   country: 'long_name',
-  //   postal_code: 'short_name'
-  // };
-
   function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         (document.getElementById('autocomplete')),
@@ -62,21 +57,8 @@
 
   function fillInAddress() {
     var place = autocomplete.getPlace();
-
     $("#latitude").val(place.geometry.location.lat());
     $("#longitude").val(place.geometry.location.lng());
-
-    // for (var component in componentForm) {
-    //   document.getElementById(component).value = '';
-    //   document.getElementById(component).disabled = false;
-    // }
-    // for (var i = 0; i < place.address_components.length; i++) {
-    //   var addressType = place.address_components[i].types[0];
-    //   if (componentForm[addressType]) {
-    //     var val = place.address_components[i][componentForm[addressType]];
-    //     document.getElementById(addressType).value = val;
-    //   }
-    // }
   }
 
   function geolocate() {
