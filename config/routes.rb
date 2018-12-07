@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  devise_for :developers, path: 'developers', controllers: {
+    sessions:             'developers/sessions',
+    passwords:            'developers/passwords',
+    registrations:        'developers/registrations',
+    confirmations:        'developers/confirmations',
+    ominiauth_callbacks:  'developers/ominiauth_callbacks',
+    unlocks:              'developers/unlocks'
+  }
+  
   devise_for :admins, path: 'admins', controllers: {
     sessions:             'admins/sessions',
     passwords:            'admins/passwords',
