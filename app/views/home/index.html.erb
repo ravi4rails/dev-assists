@@ -4,9 +4,11 @@
     <div class="card mb-3">
       <div class="card-body p-5">
         <%= form_for :search_developer, url: "#", method: :get do |f| %>
+          <%= f.hidden_field :latitude, id: :latitude %>
+          <%= f.hidden_field :longitude, id: :longitude %>
           <div class="row">
             <div class="col-md-3">
-              <%= f.select :skill, options_for_select(Skill.all.map{|s| [s.name, s.id]}), { prompt: "Select Skill" }, { class: "form-control" } %>
+              <%= f.text_field :skill, class: "form-control", id: :tags, placeholder: "Search by Skill"  %>
             </div>
             <div class="col-md-7">
               <%= f.text_field :address, class: "form-control", id: "autocomplete", onFocus: "geolocate()", placeholder: "Search by Location" %>
@@ -25,3 +27,75 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </div>
 </div>
+
+<script>
+  $( function() {
+    attags = "/skill-titles.json";
+    console.log(attags);
+    availableTags = [];
+    $.getJSON(attags, function(data){
+      $.each(data, function (index, value) {
+        availableTags.push(value);
+      });
+    });
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+</script>
+
+<script>
+  var placeSearch, autocomplete;
+  // var componentForm = {
+  //   locality: 'long_name',
+  //   administrative_area_level_1: 'short_name',
+  //   country: 'long_name',
+  //   postal_code: 'short_name'
+  // };
+
+  function initAutocomplete() {
+    autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),
+        {types: ['geocode']});
+    autocomplete.addListener('place_changed', fillInAddress);
+  }
+
+  function fillInAddress() {
+    var place = autocomplete.getPlace();
+
+    $("#latitude").val(place.geometry.location.lat());
+    $("#longitude").val(place.geometry.location.lng());
+
+    // for (var component in componentForm) {
+    //   document.getElementById(component).value = '';
+    //   document.getElementById(component).disabled = false;
+    // }
+    // for (var i = 0; i < place.address_components.length; i++) {
+    //   var addressType = place.address_components[i].types[0];
+    //   if (componentForm[addressType]) {
+    //     var val = place.address_components[i][componentForm[addressType]];
+    //     document.getElementById(addressType).value = val;
+    //   }
+    // }
+  }
+
+  function geolocate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var circle = new google.maps.Circle({
+          center: geolocation,
+          radius: position.coords.accuracy
+        });
+        autocomplete.setBounds(circle.getBounds());
+      });
+    }
+  }
+</script>
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries=places&callback=initAutocomplete"
+  async defer>
+</script>

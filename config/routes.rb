@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
+  get "/skill-titles"          => "home#autocomplete"
 
 end
