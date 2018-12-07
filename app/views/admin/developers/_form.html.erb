@@ -11,106 +11,212 @@
         </ul>
       </div>
     <% end %>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :first_name %>
-          <%= form.text_field :first_name, id: :developer_first_name, class: "form-control" %>
-        </div>
-      </div> 
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :last_name %>
-          <%= form.text_field :last_name, id: :developer_last_name, class: "form-control" %>
-        </div>
-      </div>   
-    </div>  
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :contact_number %>
-          <%= form.text_field :contact_number, id: :developer_contact_number, class: "form-control" %>
-        </div>
-      </div> 
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :email %>
-          <%= form.text_field :email, id: :developer_email, class: "form-control" %>
-        </div>
-      </div>   
-    </div>  
+    <%= form.hidden_field :latitude, id: :latitude %>
+    <%= form.hidden_field :longitude, id: :longitude %>
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :profile_photo %>
-          <%= form.file_field :profile_photo, id: :developer_profile_photo%>
-        </div>
-      </div> 
-      <div class="col-md-6">  
-        <div class="form-group">
-          <%= form.label :date_of_birth %>
-          <br>
-          <%= form.date_select :date_of_birth, id: :developer_date_of_birth, class: "form-control" %>
-        </div>
-      </div>   
-    </div> 
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :permanent_address %>
-          <%= form.text_field :permanent_address, id: :developer_permanent_address, class: "form-control" %>
-        </div>
-      </div> 
-      <div class="col-md-6">  
-        <div class="form-group">
-          <%= form.label :developer_type %>
-          <%= form.text_field :developer_type, id: :developer_developer_type, class: "form-control" %>
-        </div>
-      </div>   
-    </div> 
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :about %>
-          <%= form.text_area :about, id: :developer_about, class: "form-control" %>
-        </div>
-      </div> 
-      <div class="col-md-6">  
-        <div class="form-group">
-          <%= form.label :city %>
-          <%= form.text_field :city, id: :developer_city, class: "form-control" %>
-        </div>
-      </div>   
-    </div> 
-
-    <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
-          <%= form.label :state %>
-          <%= form.text_field :state, id: :developer_state, class: "form-control" %>
-        </div>
-      </div> 
-      <div class="col-md-4">  
-        <div class="form-group">
-          <%= form.label :country %>
-          <%= form.text_field :country, id: :developer_country, class: "form-control" %>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Personal Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :first_name %>
+              <%= form.text_field :first_name, id: :developer_first_name, class: "form-control" %>
+            </div>
+          </div> 
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :last_name %>
+              <%= form.text_field :last_name, id: :developer_last_name, class: "form-control" %>
+            </div>
+          </div>   
         </div>  
-      </div>   
-      <div class="col-md-4">  
-        <div class="form-group">
-          <%= form.label :zipcode %>
-          <%= form.text_field :zipcode, id: :developer_zipcode, class: "form-control" %>
-        </div>
-      </div> 
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :contact_number %>
+              <%= form.text_field :contact_number, id: :developer_contact_number, class: "form-control" %>
+            </div>
+          </div> 
+          <div class="col-md-6">  
+            <div class="form-group">
+              <%= form.label :developer_type %>
+              <%= form.text_field :developer_type, id: :developer_developer_type, class: "form-control" %>
+            </div>
+          </div>   
+        </div> 
+        <div class="row">
+          <div class="col-md-6">  
+            <div class="form-group">
+              <%= form.label :date_of_birth %>
+              <br>
+              <%= form.date_select :date_of_birth, id: :developer_date_of_birth, class: "form-control" %>
+            </div>
+          </div>   
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :profile_photo %>
+              <%= form.file_field :profile_photo, id: :developer_profile_photo%>
+            </div>
+          </div> 
+        </div> 
+      </div>
     </div>
-   
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Account Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :email %>
+              <%= form.email_field :email, id: :developer_email, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :password %>
+              <%= form.password_field :password, id: :developer_password, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :confirm_password %>
+              <%= form.text_field :password_confirmation, id: :developer_password_confirmation, class: "form-control" %>
+            </div>
+          </div>   
+        </div> 
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Address Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= form.label :permanent_address %>
+              <%= form.text_field :permanent_address, class: "form-control", id: "autocomplete", onFocus: "geolocate()" %>
+            </div>
+          </div> 
+        </div> 
+        <div class="row">
+          <div class="col-md-6">  
+            <div class="form-group">
+              <%= form.label :city %>
+              <%= form.text_field :city, id: :locality, class: "form-control", disabled: true %>
+            </div>
+          </div>   
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :state %>
+              <%= form.text_field :state, id: :administrative_area_level_1, class: "form-control", disabled: true %>
+            </div>
+          </div> 
+        </div> 
+        <div class="row">
+          <div class="col-md-6">  
+            <div class="form-group">
+              <%= form.label :country %>
+              <%= form.text_field :country, id: :country, class: "form-control", disabled: true %>
+            </div>  
+          </div>   
+          <div class="col-md-6">  
+            <div class="form-group">
+              <%= form.label :zipcode %>
+              <%= form.text_field :zipcode, id: :postal_code, class: "form-control", disabled: true %>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Detailed Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= form.label :about %>
+              <%= form.text_area :about, id: :developer_about, class: "form-control", rows: "10" %>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
     <div class="actions mt-4">
-      <%= form.submit class: "btn btn-primary" %>
-      
+      <%= form.submit class: "btn btn-primary" %>     
+      <%= link_to  admin_developers_path, class: "btn btn-secondary" do%>
+        <i class="fa fa-arrow-left mr-2"></i>Back
+      <% end %> 
     </div>
   <% end %>
 </div>
+
+<script>
+  var placeSearch, autocomplete;
+  var componentForm = {
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+  };
+
+  function initAutocomplete() {
+    autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),
+        {types: ['geocode']});
+    autocomplete.addListener('place_changed', fillInAddress);
+  }
+
+  function fillInAddress() {
+    var place = autocomplete.getPlace();
+
+    $("#latitude").val(place.geometry.location.lat());
+    $("#longitude").val(place.geometry.location.lng());
+
+    for (var component in componentForm) {
+      document.getElementById(component).value = '';
+      document.getElementById(component).disabled = false;
+    }
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        var val = place.address_components[i][componentForm[addressType]];
+        document.getElementById(addressType).value = val;
+      }
+    }
+  }
+
+  function geolocate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var circle = new google.maps.Circle({
+          center: geolocation,
+          radius: position.coords.accuracy
+        });
+        autocomplete.setBounds(circle.getBounds());
+      });
+    }
+  }
+</script>
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries=places&callback=initAutocomplete"
+  async defer>
+</script>
