@@ -53,7 +53,9 @@ class Admin::DevelopersController < AdminController
   def create_developer_skills
     @skill_array = params[:developer_skill][:skill_ids].reject {|c| c.empty?}
     @skill_array.each do |skill_id|
-      @developer.developer_skills.create(skill_id: skill_id)
+      unless @developer.skills.ids.include? skill_id
+        @developer.developer_skills.create(skill_id: skill_id)
+      end
     end
     redirect_to admin_developer_path(@developer), flash: { notice: 'Skill are successfully added.'}
   end

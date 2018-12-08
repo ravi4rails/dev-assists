@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         get :add_skills
         post :create_developer_skills
       end
+      resources :developer_skills
     end
     resources :skills
   end

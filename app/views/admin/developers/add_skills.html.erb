@@ -5,10 +5,15 @@
         <h5 class="card-title">Add Skills for <%= @developer.name %> </h5>
       </div>
       <div class="card-body">
+
+        <% if @developer.skills.present? %>
+          <div style="display:none;" data-skll-ids="<%= @developer.skills.pluck(:id)%>" id="dev_skill_ids"></div>
+        <% end %>
+
         <%= form_for :developer_skill, url: :create_developer_skills_admin_developer, method: :post do |f| %>
           <div class="form-group">
             <label>Choose Skills</label>
-            <%= f.select :skill_ids, options_for_select(@skills.map {|s| [s.name, s.id]}), {prompt: "Select Skills"}, {id: "skill-selection", class: "form-control",  multiple: true} %>
+            <%= f.select :skill_ids, options_for_select(@skills.map {|s| [s.name, s.id]}), {prompt: "Select Skills"}, {id: "skill-selection", class: "form-control skill_multi_select",  multiple: true} %>
           </div>
           <div class="form-group">
             <%= f.submit "Add Skills", class: "btn btn-primary" %>
@@ -21,6 +26,10 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#skill-selection").select2()
+    $("#skill-selection").select2();
+    if ($("#dev_skill_ids").length == 1) {
+      skill_ids = $("#dev_skill_ids").data("skll-ids");
+      $("#skill-selection").val(skill_ids).change();
+    }
   });
 </script>
