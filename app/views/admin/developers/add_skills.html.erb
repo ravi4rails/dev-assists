@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-9 mx-md-auto">
+    <div class="card mt-5 mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Add Skills for <%= @developer.name %> </h5>
+      </div>
+      <div class="card-body">
+        <%= form_for :developer_skill, url: :create_developer_skills_admin_developer, method: :post do |f| %>
+          <div class="form-group">
+            <label>Choose Skills</label>
+            <%= f.select :skill_ids, options_for_select(@skills.map {|s| [s.name, s.id]}), {prompt: "Select Skills"}, {id: "skill-selection", class: "form-control",  multiple: true} %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Add Skills", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#skill-selection").select2()
+  });
+</script>

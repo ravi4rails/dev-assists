@@ -15,4 +15,5 @@
 //= require popper
 //= require bootstrap
 //= require plugins/jquery-ui
+//= require plugins/select2
 //= require turbolinks

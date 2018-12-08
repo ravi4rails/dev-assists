@@ -19,7 +19,12 @@ Rails.application.routes.draw do
   }
   
   namespace :admin do
-    resources :developers
+    resources :developers do 
+      member do 
+        get :add_skills
+        post :create_developer_skills
+      end
+    end
     resources :skills
   end
 

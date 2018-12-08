@@ -1,5 +1,5 @@
 class Admin::DevelopersController < AdminController
-  before_action :set_developer, only: [:show, :edit, :update, :destroy]
+  before_action :set_developer, only: [:show, :edit, :update, :destroy, :add_skills, :create_developer_skills]
 
   def index
     @developers = Developer.all
@@ -44,6 +44,18 @@ class Admin::DevelopersController < AdminController
       format.html { redirect_to admin_developers_url, notice: 'Developer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_skills
+    @skills = Skill.all
+  end
+
+  def create_developer_skills
+    @skill_array = params[:developer_skill][:skill_ids].reject {|c| c.empty?}
+    @skill_array.each do |skill_id|
+      @developer.developer_skills.create(skill_id: skill_id)
+    end
+    redirect_to admin_developer_path(@developer), flash: { notice: 'Skill are successfully added.'}
   end
 
   private
