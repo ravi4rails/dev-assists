@@ -1,97 +1,126 @@
 <div class="container">
-  <div class="card mt-5 mb-5">
-    <div class="card-body">
-      <p>
-        <strong>Name:</strong>
-        <%= @developer.name %>
-      </p>
-
-      <p>
-        <strong>Contact number:</strong>
-        <%= @developer.contact_number %>
-      </p>
-
-      <p>
-        <strong>Email:</strong>
-        <%= @developer.email %>
-      </p>
-
-      <p>
-        <strong>Profile photo:</strong><br>
-        <% if @developer.profile_photo.present? %>
-          <%= image_tag @developer.profile_photo, class: "w-25" %>
-        <% end %>  
-      </p>
-
-      <p>
-        <strong>Date of birth:</strong>
-        <%= @developer.date_of_birth %>
-      </p>
-
-      <p>
-        <strong>Permanent address:</strong>
-        <%= @developer.permanent_address %>
-      </p>
-
-      <p>
-        <strong>Developer type:</strong>
-        <%= @developer.developer_type %>
-      </p>
-
-      <p>
-        <strong>About:</strong>
-        <%= @developer.about %>
-      </p>
-
-      <p>
-        <strong>City:</strong>
-        <%= @developer.city %>
-      </p>
-
-      <p>
-        <strong>State:</strong>
-        <%= @developer.state %>
-      </p>
-
-      <p>
-        <strong>Country:</strong>
-        <%= @developer.country %>
-      </p>
-
-      <p>
-        <strong>Zipcode:</strong>
-        <%= @developer.zipcode %>
-      </p>
-
-      <div class="skill-area pt-3 pb-3 mb-2">
-        <h2 class="display-6">Skills</h2>
-        <% if @developer.skills.present? %>
-          <% @developer.developer_skills.each do |developer_skill| %>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-primary"><%= developer_skill.skill.name %></button>
-              <%= link_to admin_developer_developer_skill_path(@developer, developer_skill), class: "btn btn-danger", data: { confirm: "Are you sure you want to remove this skill?", method: :delete } do %>
-                <i class="fa fa-times"></i>
-              <% end %>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card mt-5 mb-5">
+        <div class="card-body">
+          <div class="skill-area pt-3 pb-3 mb-2">
+            <h2 class="display-6 mb-3">Personal Information</h2>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                    <% if @developer.profile_photo.present? %>
+                      <%= image_tag @developer.profile_photo, class: "img-fluid", style: "border-radius:50%;width:150px;height:150px;" %>
+                    <% end %>  
+                    <h6 class="mt-2 font-bold font-blue"><%= @developer.name.titleize %></h6>
+                    <h6 class="mt-2 font-bold font-blue">+91 <%= @developer.contact_number %></h6>
+                    <h4><span class="badge badge-primary"><%= @developer.developer_type %></span></h4>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Email:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.email %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Date of Birth:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.date_of_birth %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Address:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.permanent_address %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">City:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.city %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">State:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.state %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Country:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.country %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Zipcode:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.zipcode %></h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          <% end %>
-          <div class="mt-2">
-            <%= link_to 'Update your skills', add_skills_admin_developer_path(@developer), class: "btn btn-success" %>
           </div>
-        <% else %>
-          <p class="lead">You have not any skills added to your profile yet. </p>
-          <%= link_to 'Add Skills', add_skills_admin_developer_path(@developer), class: "btn btn-success" %>
-        <% end %>
-      </div>
 
-      <%= link_to 'Edit', edit_admin_developer_path(@developer), class: "btn btn-primary" %> |
-      <%= link_to 'Back', admin_developers_path, class: "btn btn-secondary" %>
-    </div>  
-  </div>  
+          <div class="skill-area pt-3 pb-3 mb-2">
+            <h2 class="display-6">Detailed Description</h2>
+            <div class="row">
+              <div class="col-md-12">
+                <%= @developer.about %>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-area area-border-bot pt-3 pb-3 mb-2">
+            <h2 class="display-6">Skills</h2>
+            <% if @developer.skills.present? %>
+              <% @developer.developer_skills.each do |developer_skill| %>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-primary"><%= developer_skill.skill.name %></button>
+                  <%= link_to admin_developer_developer_skill_path(@developer, developer_skill), class: "btn btn-danger", data: { confirm: "Are you sure you want to remove this skill?", method: :delete } do %>
+                    <i class="fa fa-times"></i>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="mt-2">
+                <%= link_to 'Update your skills', add_skills_admin_developer_path(@developer), class: "btn btn-success" %>
+              </div>
+            <% else %>
+              <p class="lead">You have not any skills added to your profile yet. </p>
+              <%= link_to 'Add Skills', add_skills_admin_developer_path(@developer), class: "btn btn-success" %>
+            <% end %>
+          </div>
+
+          <%= link_to 'Edit', edit_admin_developer_path(@developer), class: "btn btn-primary" %> |
+          <%= link_to 'Back', admin_developers_path, class: "btn btn-secondary" %>
+        </div>  
+      </div>  
+    </div>
+  </div>
 </div>  
 
 <style type="text/css">
   .skill-area {
     border-top: 2px solid #ccc;
+  }
+  .area-border-bot {
     border-bottom: 2px solid #ccc;
   }
 </style>
