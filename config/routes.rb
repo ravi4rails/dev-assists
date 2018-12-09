@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     ominiauth_callbacks:  'admins/ominiauth_callbacks',
     unlocks:              'admins/unlocks'
   }
+
+  namespace :developer do 
+    get 'profile/edit' => 'site#developer_profile'
+  end
   
   namespace :admin do
     resources :developers do 

@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= form_for @developer, url: '#', method: :post do |f| %>
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="font-bold mb-3">Personal Information</h5>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "First Name" %>
+                <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Last Name" %>
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Contact Number" %>
+                <%= f.text_field :contact_number, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Profile Photo" %><br>
+                <%= f.file_field :profile_photo %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="font-bold mb-3">Account Information</h5>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Email" %>
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Password" %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Password Confirmation" %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>        
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="font-bold mb-3">Address Information</h5>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Address" %>
+                <%= f.text_field :permanent_address, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "City" %>
+                <%= f.text_field :city, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "State" %>
+                <%= f.text_field :state, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Country" %>
+                <%= f.text_field :country, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "Zipcode" %>
+                <%= f.text_field :zipcode, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="font-bold mb-3">Detailed Information</h5>
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <%= f.label "About" %>
+                <%= f.text_area :about, class: "form-control", rows: "10" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
