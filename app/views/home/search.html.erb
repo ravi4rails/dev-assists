@@ -31,7 +31,48 @@
 </div>
 <style type="text/css">
   #map {
-    width: 100%;
-    height:365px;
+    width: 110%;
+    height:100%;
   }
 </style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y">
+</script>
+
+<script type="text/javascript">
+  var locations = [];
+
+  <% @developers.all.each do |developer| %>
+    locations.push(["<%= developer.country %>", <%= developer.latitude %>, <%= developer.longitude %>, "<%= developer.name.titleize %>"]);
+  <% end %>
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {  
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    });
+
+    developer_name = locations[i][3];
+    developer_country = locations[i][0];
+    
+    var infowindow = new google.maps.InfoWindow({
+      content: developer_name + " <br> <font style='color:#fc9a01;'>from <b>"+ developer_country+ "</b></font>"
+    });
+    infowindow.open(map, marker);
+
+    google.maps.event.addListener(marker, 'click', (function(marker, map) {
+      infowindow.open(map, marker);
+    })(marker, map));
+  }
+
+</script>
