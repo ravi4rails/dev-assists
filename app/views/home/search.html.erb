@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <% @developers.each do |developer| %>
+        <div class="card mt-3 mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <%= image_tag developer.profile_photo.url, style: "width:140px;height:140px;border-radius:50%;border:2px solid #ccc;"  if developer.profile_photo.present? %>
+              </div>
+              <div class="col-md-8">
+                <h3><%= developer.first_name%> <%= developer.last_name%></h3>
+                <hr>
+                <p>Email: <%= developer.email %></p>
+                <p>Contact Number: <%= developer.contact_number %></p>
+                <p>Address: <%= developer.permanent_address %></p>
+                <p>City: <%= developer.city %></p>
+                <p>Zipcode: <%= developer.zipcode %></p>
+                <p>State: <%= developer.state %></p>
+                <p>Country <%= developer.country %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  #map {
+    width: 100%;
+    height:365px;
+  }
+</style>

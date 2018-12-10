@@ -139,7 +139,7 @@
 <script type="text/javascript">
   function initMap() {
     latitude = <%= @developer.latitude %>;
-    longitude = <%= @developer.longitude %>;;
+    longitude = <%= @developer.longitude %>;
     var venue = {lat: latitude, lng: longitude};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,
