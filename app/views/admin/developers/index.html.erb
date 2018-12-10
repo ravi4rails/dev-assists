@@ -6,21 +6,32 @@
       <div class="from-group col-md-3">
         <%= f.text_field :first_name_cont, class: "form-control", placeholder: "First name" %>
       </div>
-      <div class="col-md-3">
+      <div class="from-group col-md-3">
         <%= f.text_field :last_name_cont, class: "form-control", placeholder: "Last name" %>
       </div>
-      <div class="col-md-3">
+      <div class="from-group col-md-3">
+        <%= f.text_field :email_cont, class: "form-control", placeholder: "Email" %>
+      </div>
+      <div class="from-group col-md-3">
+        <%= f.text_field :contact_number_cont, class: "form-control", placeholder: "Contact number" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+       <div class="from-group col-md-3">
         <%= f.text_field :permanent_address_cont, class: "form-control", placeholder: "Permanent address" %>
       </div>
-      <div class="col-md-3">
-        <%= f.text_field :city_cont, class: "form-control", placeholder: "city" %>
+      <div class="from-group col-md-3">
+        <%= f.text_field :zipcode_cont, class: "form-control", placeholder: "Zipcode" %>
+      </div>
+      <div class="from-group col-md-3">
+        <%= f.text_field :city_cont, class: "form-control", placeholder: "City" %>
+      </div>
+      <div class="from-group col-md-3">
+        <%= f.text_field :state_cont, class: "form-control", placeholder: "State" %>
       </div>
     </div>
     <div class="row mt-2">
       <div class="from-group col-md-3">
-        <%= f.text_field :state_cont, class: "form-control", placeholder: "State" %>
-      </div>
-      <div class="col-md-3">
         <%= f.text_field :country_cont, class: "form-control", placeholder: "Country" %>
       </div>
     </div>
