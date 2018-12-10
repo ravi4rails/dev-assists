@@ -11,6 +11,8 @@ class Developer < ApplicationRecord
   mount_uploader :profile_photo, ImageUploader
 
   paginates_per 10
+  geocoded_by :permanent_address
+  after_validation :geocode
 
   def name
     "#{self.first_name} #{self.last_name}"

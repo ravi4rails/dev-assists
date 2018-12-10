@@ -3,15 +3,15 @@
   <div class="col-md-11 mx-md-auto">
     <div class="card mb-3">
       <div class="card-body p-5">
-        <%= search_form_for @search, url: :root do |f| %>
-          <%#= f.hidden_field :latitude, id: :latitude %>
-          <%#= f.hidden_field :longitude, id: :longitude %>
+        <%= form_for :search, url: :search, method: :get do |f| %>
+          <%= f.hidden_field :latitude, id: :latitude %>
+          <%= f.hidden_field :longitude, id: :longitude %>
           <div class="row">
             <div class="col-md-3">
-              <%= f.text_field :name_cont, class: "form-control", id: :tags, placeholder: "Search by Skill"  %>
+              <%= f.text_field :skill, class: "form-control", id: :tags, placeholder: "Search by Skill"  %>
             </div>
             <div class="col-md-7">
-              <%#= f.text_field :address, class: "form-control", id: "autocomplete", onFocus: "geolocate()", placeholder: "Search by Location" %>
+              <%= f.text_field :address, class: "form-control", id: "autocomplete", onFocus: "geolocate()", placeholder: "Search by Location" %>
             </div>
             <div class="col-md-2">
               <%= f.submit "Search", class: "btn btn-primary btn-block" %>
