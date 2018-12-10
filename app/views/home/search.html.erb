@@ -2,39 +2,33 @@
   <div class="row">
     <div class="col-md-7">
       <% @developers.each do |developer| %>
-        <div class="card mt-3 mb-3">
-          <div class="card-body">
+        <div class="card mt-3 mb-3 custom-box">
+          <div class="card-body ">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 text-center">
                 <%= image_tag developer.profile_photo.url, style: "width:140px;height:140px;border-radius:50%;border:2px solid #ccc;"  if developer.profile_photo.present? %>
+                <h6 class="font-normal mt-3"><%= developer.name.titleize%></h6>
               </div>
               <div class="col-md-8">
-                <h3><%= developer.first_name%> <%= developer.last_name%></h3>
-                <hr>
-                <p>Email: <%= developer.email %></p>
-                <p>Contact Number: <%= developer.contact_number %></p>
-                <p>Address: <%= developer.permanent_address %></p>
-                <p>City: <%= developer.city %></p>
-                <p>Zipcode: <%= developer.zipcode %></p>
-                <p>State: <%= developer.state %></p>
-                <p>Country <%= developer.country %></p>
+                <p><i class="fa fa-envelope font-blue"></i> <%= developer.email %></p>
+                <p><i class="fa fa-phone font-blue"></i> <%= developer.contact_number %></p>
+                <p><i class="fa fa-map-marker font-blue"></i> <%= developer.permanent_address %></p>
+                <p>
+                  <%= link_to "", class: "btn btn-psrimary" do %>
+                    <i class="fa fa-eye"></i> View Profile
+                  <% end %>
+                </p>
               </div>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 mt-3">
       <div id="map"></div>
     </div>
   </div>
 </div>
-<style type="text/css">
-  #map {
-    width: 110%;
-    height:100%;
-  }
-</style>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y">
 </script>
