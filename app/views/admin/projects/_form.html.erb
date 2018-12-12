@@ -1,64 +1,64 @@
 <%= form_for [:admin, project] do |form| %>
-<% if project.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-  <ul>
-    <% project.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<div class="container">
-  <div class="card mb-3">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :title %>
-                <%= form.text_field :title, id: :project_title, class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :description %>
-                <%= form.text_area :description, id: :project_description, class: "form-control" %>
-              </div>
+      <ul>
+        <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :title %>
+              <%= form.text_field :title, id: :project_title, class: "form-control" %>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :duration %>
-                <%= form.text_field :duration, id: :project_duration, class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :role %>
-                <%= form.text_field :role, id: :project_role, class: "form-control" %>
-              </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :description %>
+              <%= form.text_area :description, id: :project_description, class: "form-control" %>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :url %>
-                <%= form.text_field :url, id: :project_url, class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :developer_id %>
-                <%= form.text_field :developer_id, id: :project_developer_id, class: "form-control" %>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <%= form.submit class: "btn btn-primary" %>
-          </div>
-          <% end %>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :duration %>
+              <%= form.text_field :duration, id: :project_duration, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :role %>
+              <%= form.text_field :role, id: :project_role, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :url %>
+              <%= form.text_field :url, id: :project_url, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :developer_id %>
+              <%= form.select :developer_id, options_for_select(developer_list, selected: developer_list), { include_blank: "Select Developer" }, { class: "form-control", required: true } %>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <%= form.submit class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>

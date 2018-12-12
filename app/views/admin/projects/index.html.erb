@@ -10,7 +10,6 @@
           <th>Duration</th>
           <th>Role</th>
           <th>Url</th>
-          <th>Developer</th>
           <th colspan="3" class="text-center">Actions</th>
         </tr>
       </thead>
@@ -23,7 +22,6 @@
         <td><%= project.duration %></td>
         <td><%= project.role %></td>
         <td><%= project.url %></td>
-        <td><%= project.developer %></td>
         <td><%= link_to 'Show', admin_project_path(project) %></td>
         <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
         <td><%= link_to 'Destroy', admin_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>

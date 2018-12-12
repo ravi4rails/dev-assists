@@ -6,7 +6,7 @@ class Developer < ApplicationRecord
 
   validates :first_name, :last_name, :contact_number, presence: true
   
-  has_many :projects
+  has_many :projects, dependent: :destroy
   has_many :developer_skills
   has_many :skills, through: :developer_skills
   mount_uploader :profile_photo, ImageUploader

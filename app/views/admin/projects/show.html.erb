@@ -31,7 +31,7 @@
 
           <p>
             <strong>Developer:</strong>
-            <%= @project.developer %>
+            <%= @project.developer.first_name %>
           </p>
 
           <%= link_to 'Edit', edit_admin_project_path(@project), class: "btn btn-info" %> |
