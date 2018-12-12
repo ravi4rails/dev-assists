@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :developer_skills
     end
     resources :skills
+    resources :projects
   end
 
   root 'home#index'
