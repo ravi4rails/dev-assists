@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get "/skill-titles"          => "home#autocomplete"
   get '/search'                => "home#search"
+
+  get '/profiles/:id'          => "dev_profile#profile"
 end
