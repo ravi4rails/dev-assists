@@ -1,0 +1,132 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card mt-5 mb-5">
+        <div class="card-body">
+          <div class="skill-area pt-3 pb-3 mb-2">
+            <h2 class="display-6 mb-3">Personal Information</h2>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                    <% if @developer.profile_photo.present? %>
+                      <%= image_tag @developer.profile_photo, class: "img-fluid", style: "border-radius:50%;width:150px;height:150px;" %>
+                    <% end %>  
+                    <h6 class="mt-2 font-bold font-blue"><%= @developer.name.titleize %></h6>
+                    <h6 class="mt-2 font-bold font-blue">+91 <%= @developer.contact_number %></h6>
+                    <h4><span class="badge badge-primary"><%= @developer.developer_type %></span></h4>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Email:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.email %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Date of Birth:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.date_of_birth %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Address:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.permanent_address %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">City:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.city %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">State:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.state %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Country:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.country %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Zipcode:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <h6><%= @developer.zipcode %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 text-md-right">
+                        <h6 class="font-bold">Projects & Project duration:</h6>
+                      </div>
+                      <div class="col-md-9">
+                        <% @developer.projects.each do |project| %>
+                          <h6><%= project.title%> : <%= project.duration%></h6>
+                        <%end%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <%= link_to 'Back', "/", class: "btn btn-secondary" %>
+        </div>  
+      </div>  
+    </div>
+    <div class="col-md-3 mt-5 mb-5">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>  
+
+<style type="text/css">
+  .skill-area {
+    border-top: 2px solid #ccc;
+  }
+  .area-border-bot {
+    border-bottom: 2px solid #ccc;
+  }
+  #map {
+    width: 100%;
+    height:300px;
+  }
+</style>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&callback=initMap">
+</script>
+
+<script type="text/javascript">
+  function initMap() {
+    latitude = <%= @developer.latitude %>;
+    longitude = <%= @developer.longitude %>;
+    var venue = {lat: latitude, lng: longitude};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: venue
+    });
+    var marker = new google.maps.Marker({
+      position: venue,
+      map: map
+    });
+  }
+</script>
