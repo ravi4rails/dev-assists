@@ -16,4 +16,6 @@
 //= require bootstrap
 //= require plugins/jquery-ui
 //= require plugins/select2
+//= require summernote/summernote-bs4
+//= require summernote-init
 //= require turbolinks
