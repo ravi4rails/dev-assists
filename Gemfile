@@ -62,3 +62,5 @@ gem 'ransack'
 gem 'kaminari'
 gem 'geocoder'
 gem 'summernote-rails', '~> 0.8.10.0'
+gem "cocoon"
+

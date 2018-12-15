@@ -18,4 +18,5 @@
 //= require plugins/select2
 //= require summernote/summernote-bs4
 //= require summernote-init
+//= require cocoon
 //= require turbolinks

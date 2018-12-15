@@ -1,5 +1,5 @@
 <div class="col-md-8 mx-md-auto mt-5 mb-5">
-  <%= form_for [:admin, developer] do |form| %>
+  <%= form_for [:admin, developer] do |f| %>
     <% if developer.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(developer.errors.count, "error") %> prohibited this developer from being saved:</h2>
@@ -12,8 +12,8 @@
       </div>
     <% end %>
 
-    <%= form.hidden_field :latitude, id: :latitude %>
-    <%= form.hidden_field :longitude, id: :longitude %>
+    <%= f.hidden_field :latitude, id: :latitude %>
+    <%= f.hidden_field :longitude, id: :longitude %>
 
     <div class="card mb-3">
       <div class="card-header">
@@ -23,43 +23,43 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :first_name %>
-              <%= form.text_field :first_name, id: :developer_first_name, class: "form-control" %>
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, id: :developer_first_name, class: "form-control" %>
             </div>
           </div> 
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :last_name %>
-              <%= form.text_field :last_name, id: :developer_last_name, class: "form-control" %>
+              <%= f.label :last_name %>
+              <%=f.text_field :last_name, id: :developer_last_name, class: "form-control" %>
             </div>
           </div>   
         </div>  
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :contact_number %>
-              <%= form.text_field :contact_number, id: :developer_contact_number, class: "form-control" %>
+              <%= f.label :contact_number %>
+              <%= f.text_field :contact_number, id: :developer_contact_number, class: "form-control" %>
             </div>
           </div> 
           <div class="col-md-6">  
             <div class="form-group">
-              <%= form.label :developer_type %>
-              <%= form.text_field :developer_type, id: :developer_developer_type, class: "form-control" %>
+              <%= f.label :developer_type %>
+              <%= f.text_field :developer_type, id: :developer_developer_type, class: "form-control" %>
             </div>
           </div>   
         </div> 
         <div class="row">
           <div class="col-md-6">  
             <div class="form-group">
-              <%= form.label :date_of_birth %>
+              <%= f.label :date_of_birth %>
               <br>
-              <%= form.date_select :date_of_birth, id: :developer_date_of_birth, class: "form-control" %>
+              <%= f.date_select :date_of_birth, id: :developer_date_of_birth, class: "form-control" %>
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :profile_photo %>
-              <%= form.file_field :profile_photo, id: :developer_profile_photo%>
+              <%= f.label :profile_photo %>
+              <%= f.file_field :profile_photo, id: :developer_profile_photo%>
             </div>
           </div> 
         </div> 
@@ -74,22 +74,22 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :email %>
-              <%= form.email_field :email, id: :developer_email, class: "form-control" %>
+              <%= f.label :email %>
+              <%= f.email_field :email, id: :developer_email, class: "form-control" %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :password %>
-              <%= form.password_field :password, id: :developer_password, class: "form-control" %>
+              <%= f.label :password %>
+              <%= f.password_field :password, id: :developer_password, class: "form-control" %>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :confirm_password %>
-              <%= form.password_field :password_confirmation, id: :developer_password_confirmation, class: "form-control" %>
+              <%= f.label :confirm_password %>
+              <%= f.password_field :password_confirmation, id: :developer_password_confirmation, class: "form-control" %>
             </div>
           </div>   
         </div> 
@@ -104,36 +104,36 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <%= form.label :permanent_address %>
-              <%= form.text_field :permanent_address, class: "form-control", id: "autocomplete", onFocus: "geolocate()" %>
+              <%= f.label :permanent_address %>
+              <%= f.text_field :permanent_address, class: "form-control", id: "autocomplete", onFocus: "geolocate()" %>
             </div>
           </div> 
         </div> 
         <div class="row">
           <div class="col-md-6">  
             <div class="form-group">
-              <%= form.label :city %>
-              <%= form.text_field :city, id: :locality, class: "form-control", disabled: true %>
+              <%= f.label :city %>
+              <%= f.text_field :city, id: :locality, class: "form-control", disabled: true %>
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :state %>
-              <%= form.text_field :state, id: :administrative_area_level_1, class: "form-control", disabled: true %>
+              <%= f.label :state %>
+              <%= f.text_field :state, id: :administrative_area_level_1, class: "form-control", disabled: true %>
             </div>
           </div> 
         </div> 
         <div class="row">
           <div class="col-md-6">  
             <div class="form-group">
-              <%= form.label :country %>
-              <%= form.text_field :country, id: :country, class: "form-control", disabled: true %>
+              <%= f.label :country %>
+              <%= f.text_field :country, id: :country, class: "form-control", disabled: true %>
             </div>  
           </div>   
           <div class="col-md-6">  
             <div class="form-group">
-              <%= form.label :zipcode %>
-              <%= form.text_field :zipcode, id: :postal_code, class: "form-control", disabled: true %>
+              <%= f.label :zipcode %>
+              <%= f.text_field :zipcode, id: :postal_code, class: "form-control", disabled: true %>
             </div>
           </div> 
         </div>
@@ -148,16 +148,26 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <%= form.label :about %>
-              <%= form.text_area :about, id: :developer_about, 'data-provider': :summernote, class: "form-control", rows: "10" %>
+              <%= f.label :about %>
+              <%= f.text_area :about, id: :developer_about, 'data-provider': :summernote, class: "form-control", rows: "10" %>
             </div>
           </div> 
         </div>
       </div>
     </div>
+     <div class="col-md-12">
+      <div id="projects">
+        <%= f.fields_for :projects do |project| %>
+          <%= render 'project_fields', f: project %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add Project ', f, :projects , class: "btn btn-primary mb-2" %>
+        </div>
+      </div>
+    </div>
 
     <div class="actions mt-4">
-      <%= form.submit class: "btn btn-primary" %>     
+      <%= f.submit class: "btn btn-primary" %>     
       <%= link_to  admin_developers_path, class: "btn btn-secondary" do%>
         <i class="fa fa-arrow-left mr-2"></i>Back
       <% end %> 
