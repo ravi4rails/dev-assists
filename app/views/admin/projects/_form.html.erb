@@ -49,14 +49,6 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <%= form.label :developer_id %>
-                  <%= form.select :developer_id, options_for_select(developer_list, selected: developer_list), { include_blank: "Select Developer" }, { class: "form-control", required: true } %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
                   <%= form.label :description %>
                   <%= form.text_area :description, id: :project_description, 'data-provider': :summernote, class: "form-control", rows: "20" %>
                 </div>

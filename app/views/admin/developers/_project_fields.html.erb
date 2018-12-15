@@ -38,14 +38,6 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <%= f.label :developer_id %>
-                  <%= f.select :developer_id, options_for_select(developer_list, selected: developer_list), { include_blank: "Select Developer" }, { class: "form-control", required: true } %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
                   <%= f.label :description %>
                   <%= f.text_area :description, id: :project_description, 'data-provider': :summernote, class: "form-control", rows: "20" %>
                 </div>
@@ -57,8 +49,6 @@
           </div>
        </div>
       <%= link_to_remove_association "Remove", f , class: "btn btn-danger", style: "margin-top: 26% !important;"%>
-   </div> 
-    
-  
+   </div>  
   </div>
 </div>
