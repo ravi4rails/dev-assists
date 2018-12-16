@@ -14,7 +14,7 @@
                 <p><i class="fa fa-phone font-blue"></i> <%= developer.contact_number %></p>
                 <p><i class="fa fa-map-marker font-blue"></i> <%= developer.permanent_address %></p>
                 <p>
-                  <%= link_to  "/profiles/#{developer.id}", class: "btn btn-psrimary" do %>
+                  <%= link_to  "/profiles/#{developer.id}", class: "btn btn-primary" do %>
                     <i class="fa fa-eye"></i> View Profile
                   <% end %>
                 </p>
@@ -36,7 +36,7 @@
 <script type="text/javascript">
   var locations = [];
 
-  <% @developers.all.each do |developer| %>
+  <% @developers.each do |developer| %>
     locations.push(["<%= developer.country %>", <%= developer.latitude %>, <%= developer.longitude %>, "<%= developer.name.titleize %>"]);
   <% end %>
 
