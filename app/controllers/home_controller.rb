@@ -18,7 +18,6 @@ class HomeController < ApplicationController
       lat = params[:search][:latitude]
       long = params[:search][:longitude]
       @developers = Developer.near([lat, long], 50, units: :km)
-      puts  @developers
     end
   end
 

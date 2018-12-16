@@ -88,6 +88,38 @@
               </div>
             </div>
           </div> 
+          <% if @developer.skills.present? %>
+            <div class="skill-area pt-3 pb-3 mb-2">
+              <h2 class="display-6 mb-3">Skills</h2>
+              <% @developer.skills.each do |skill| %>
+                <%= link_to skill.name, "", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          <% end %>
+          <% if @developer.projects.present? %>
+            <div class="skill-area pt-3 pb-3 mb-2">
+              <h2 class="display-6 mb-3">Recent Works</h2>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Url</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+              </table>
+              <tbody>
+                <% @developer.projects.each do |project| %>
+                  <tr>
+                    <td><%= project.name %></td>
+                    <td><%= link_to project.url "#{project.url}" %></td>
+                    <td><%= project.role %></td>
+                  </tr>
+                  <%= link_to skill.name, "", class: "btn btn-primary" %>
+                <% end %>
+              </tbody>
+            </div>
+          <% end %>
           <%= link_to 'Back', "/", class: "btn btn-secondary" %>
         </div>  
       </div>  
