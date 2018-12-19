@@ -2,124 +2,110 @@
   <div class="row">
     <div class="col-md-8">
       <%= form_for @developer, url: '#', method: :post do |f| %>
-        <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="font-bold mb-3">Personal Information</h5>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "First Name" %>
-                <%= f.text_field :first_name, class: "form-control" %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="font-bold mb-3">Personal Information</h5>
+          <div class="row mb-3">
+              <div class="col-md-6">
+                <%= f.text_field :first_name, class: "form-control font-12", placeholder: "First-Name", style: "padding: 25px;" %>
               </div>
+              <div class="col-md-6">
+                <%= f.text_field :last_name, class: "form-control font-12", placeholder: "Last-Name", style: "padding: 25px;" %>
+              </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= f.text_field :contact_number, class: "form-control font-12", placeholder: "Phone-Number", style: "padding: 25px;" %>
             </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Last Name" %>
-                <%= f.text_field :last_name, class: "form-control" %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Contact Number" %>
-                <%= f.text_field :contact_number, class: "form-control" %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Profile Photo" %><br>
-                <%= f.file_field :profile_photo %>
-              </div>
+            <div class="col-md-6 font-12">
+              <%= f.file_field :profile_photo, style: "padding: 12px;" %>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="font-bold mb-3">Account Information</h5>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Email" %>
-                <%= f.email_field :email, class: "form-control" %>
-              </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="font-bold mb-3">Account Information</h5>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= f.email_field :email, class: "form-control font-12", placeholder: "Email", style: "padding: 25px;" %>
             </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Password" %>
-                <%= f.password_field :password, class: "form-control" %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Password Confirmation" %>
-                <%= f.password_field :password_confirmation, class: "form-control" %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-              </div>
+            <div class="col-md-6">
+              <%= f.password_field :password, class: "form-control font-12", placeholder: "Password", style: "padding: 25px;" %>
             </div>
           </div>
-        </div>        
-
-        <%= f.hidden_field :latitude, id: :latitude %>
-        <%= f.hidden_field :longitude, id: :longitude %>
-
-        <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="font-bold mb-3">Address Information</h5>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Address" %>
-                <%= f.text_field :permanent_address, class: "form-control", id: "autocomplete", onFocus: "geolocate()" %>
-              </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= f.password_field :password_confirmation, class: "form-control font-12", placeholder: "Confirm-Password", style: "padding: 25px;" %>
             </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "City" %>
-                <%= f.text_field :city, id: :locality, class: "form-control", disabled: true %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "State" %>
-                <%= f.text_field :state, id: :administrative_area_level_1, class: "form-control", disabled: true %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Country" %>
-                <%= f.text_field :country, id: :country, class: "form-control", disabled: true %>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "Zipcode" %>
-                <%= f.text_field :zipcode, id: :postal_code, class: "form-control", disabled: true %>
-              </div>
+            <div class="col-md-6">
+              <%= f.password_field :current_password, autocomplete: "off", class: "form-control font-12", placeholder: "Current-Password", style: "padding: 25px;" %>
             </div>
           </div>
         </div>
+      </div>        
 
-        <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="font-bold mb-3">Detailed Information</h5>
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <%= f.label "About" %>
-                <%= f.text_area :about, class: "form-control", rows: "10" %>
-              </div>
+      <%= f.hidden_field :latitude, id: :latitude %>
+      <%= f.hidden_field :longitude, id: :longitude %>
+
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="font-bold mb-3">Address Information</h5>
+          <div class="row mb-3">
+            <div class="col-md-12 font-12">
+              <%= f.label "Address" %>
+              <%= f.text_field :permanent_address, class: "form-control font-12", id: "autocomplete", onFocus: "geolocate()", style: "padding: 25px;"  %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 font-12">
+              <%= f.label "City" %>
+              <%= f.text_field :city, id: :locality, class: "form-control font-12", disabled: true, style: "padding: 25px;"%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 font-12">
+              <%= f.label "State" %>
+              <%= f.text_field :state, id: :administrative_area_level_1, class: "form-control font-12", disabled: true, style: "padding: 25px;" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 font-12">
+              <%= f.label "Country" %>
+              <%= f.text_field :country, id: :country, class: "form-control font-12", disabled: true, style: "padding: 25px;" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 font-12">
+              <%= f.label "Zipcode" %>
+              <%= f.text_field :zipcode, id: :postal_code, class: "form-control font-12", disabled: true, style: "padding: 25px;" %>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="row mt-3 mb-5 float-right mr-1">
-          <%= f.submit "Update Profile", class: "btn btn-primary" %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="font-bold mb-3">Detailed Information</h5>
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <%= f.label "About" %>
+              <%= f.text_area :about, class: "form-control font-12", rows: "10", 'data-provider': :summernote %>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="row mt-3 mb-5 float-right mr-1">
+        <%= f.submit "Update Profile", class: "btn btn-primary" %>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
+<style type="text/css">.custom{"padding: 25px;"}
+</style>
 <script>
   var placeSearch, autocomplete;
   var componentForm = {
@@ -131,8 +117,8 @@
 
   function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
-        (document.getElementById('autocomplete')),
-        {types: ['geocode']});
+      (document.getElementById('autocomplete')),
+      {types: ['geocode']});
     autocomplete.addListener('place_changed', fillInAddress);
   }
 
@@ -172,6 +158,6 @@
   }
 </script>
 <script 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries=places&callback=initAutocomplete"
-  async defer>
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries=places&callback=initAutocomplete"
+async defer>
 </script>

@@ -15,6 +15,8 @@ class Developer < ApplicationRecord
   paginates_per 10
   geocoded_by :permanent_address
   after_validation :geocode
+  
+  ROLES = %i[Software_Developer Project_maneger]
 
   def name
     "#{self.first_name} #{self.last_name}"

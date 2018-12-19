@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181212092051) do
+ActiveRecord::Schema.define(version: 20181217070207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20181212092051) do
     t.bigint "developer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link_to_git_Repo"
     t.index ["developer_id"], name: "index_projects_on_developer_id"
   end
 
