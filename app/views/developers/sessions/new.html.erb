@@ -1,26 +1,39 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container-fluid pl-0 pr-0">
+  <div class="row no-gutters">
+    <div class="col-md-12 border-top border-bottom p-3"> 
+      <h4 class="custom-font-family ml-5 pl-5"><strong>Log in or Sign up to continue</strong></h4>
     </div>
-  <% end -%>
+    <div class="col-md-8 mx-md-auto">
+      <div class="row no-gutters">
+        <div class="col-md-6 text-center mt-5 border-right">
+          <h6><strong>Log in</strong></h6>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group mb-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-75 mx-auto rounded-1 p-4", placeholder: "Email" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+          <div class="form-group mb-2">
+            <%= f.password_field :password, autocomplete: "off",  class: "form-control w-75 mx-auto rounded-1 p-4", placeholder: "Password"  %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Login",  class: "text-white btn btn-warning btn-lg w-75 rounded-1" %>
+          </div>
+          <div><font class="font-weight-bold">Forgot your password? </font><%= link_to "Click here", new_password_path(resource_name), class: "font-weight-bold", style: "text-decoration: none;" %></div>
+          
 
-<%= render "developers/shared/links" %>
+          
+          <% end %>
+        </div>
+        <div class="col-md-6 mt-5">
+         <h6 class="ml-5"><strong>Sign up</strong></h6>
+         <p class="ml-5" style=" color: #757d88; font-family: Sharp Sans Open Sans sans-serif;">Get more of the work you want. Tell us where <br>you work and the work you do. Choose the <br>leads you want and connect with<br> homeowners.</p>
+         <div class="btn btn-warning btn-lg ml-5 w-50 rounded-1 text-white">Get Started</div>
+
+       </div>  
+     </div> 
+   </div>  
+ </div>
+</div>
+
+
+
