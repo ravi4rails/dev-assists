@@ -1,6 +1,11 @@
-<h1>Editing Skill</h1>
+<div class="container mt-5 mb-5">
+  <%= link_to  admin_skills_path, class: "btn btn-secondary ml-2 pl-3 pr-3" do%>
+    <i class="fa fa-arrow-left mr-2 "></i>Back
+  <% end %>
+  <%= link_to  admin_skill_path(@skill), class: "btn btn-secondary ml-2 pl-3 pr-3" do%>
+    <i class="fa fa-eye mr-2 "></i>Show
+  <% end %>
+  <h2 class="text-center">Editing Skill</h2>
 
-<%= render 'form', skill: @skill %>
-
-<%= link_to 'Show', admin_skill_path(@skill) %> |
-<%= link_to 'Back', admin_skills_path %>
+  <%= render 'form', skill: @skill %>
+</div>  
