@@ -10,6 +10,8 @@ class Developer < ApplicationRecord
   has_many :skills, through: :developer_skills
   mount_uploader :profile_photo, ImageUploader
 
+  paginates_per 10
+
   def name
     "#{self.first_name} #{self.last_name}"
   end

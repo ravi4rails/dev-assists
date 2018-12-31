@@ -3,7 +3,7 @@ class Admin::DevelopersController < AdminController
 
   def index
     @search = Developer.search(params[:q])
-    @developers = @search.result
+    @developers = @search.result.page params[:page]
   end
 
   def show

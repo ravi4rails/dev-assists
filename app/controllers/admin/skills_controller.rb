@@ -3,7 +3,7 @@ class Admin::SkillsController < AdminController
 
   def index
     @search = Skill.search(params[:q])
-    @skills = @search.result
+    @skills = @search.result.page params[:page]
   end
 
   def show

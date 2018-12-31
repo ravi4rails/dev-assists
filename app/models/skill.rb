@@ -5,4 +5,5 @@ class Skill < ApplicationRecord
   has_many :developer_skills
   has_many :developers, through: :developer_skills
   
+  paginates_per 10
 end

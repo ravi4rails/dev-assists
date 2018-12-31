@@ -39,6 +39,10 @@
         <% end %>
       </tbody>
     </table>
+
+    <div class="justify-content-center">
+      <%= paginate @skills %>
+    </div>
  
     <%= link_to 'New Skill', new_admin_skill_path, class: "btn btn-primary"%>
   </div>  
