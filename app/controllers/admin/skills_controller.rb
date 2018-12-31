@@ -2,7 +2,8 @@ class Admin::SkillsController < AdminController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @skills = Skill.all
+    @search = Skill.search(params[:q])
+    @skills = @search.result
   end
 
   def show
