@@ -1,6 +1,18 @@
 <div class="container">
 
-  <h1 class="mt-5">Developers</h1>
+  <h1 class="mt-2">Developers</h1>
+  <%= search_form_for @search, url: :admin_developers do |f| %>
+    <div class="row">
+      <div class="from-group col-md-4">
+        <%= f.text_field :first_name_cont, class: "form-control", placeholder: "First name" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :last_name_cont, class: "form-control", placeholder: "Last name" %>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="actions mt-2"><%= f.submit "Search", class: "btn btn-info" %></div>
+  <% end %>
   <div class="table-responsive mt-4">
     <table class="table table-bordered">
       <thead>

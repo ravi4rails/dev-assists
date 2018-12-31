@@ -2,7 +2,8 @@ class Admin::DevelopersController < AdminController
   before_action :set_developer, only: [:show, :edit, :update, :destroy, :add_skills, :create_developer_skills]
 
   def index
-    @developers = Developer.all
+    @search = Developer.search(params[:q])
+    @developers = @search.result
   end
 
   def show
@@ -67,6 +68,6 @@ class Admin::DevelopersController < AdminController
     end
 
     def developer_params
-      params.require(:developer).permit(:first_name, :last_name, :contact_number, :email, :profile_photo, :date_of_birth, :permanent_address, :developer_type, :about, :city, :state, :country, :zipcode, :latitude, :longitude)
+      params.require(:developer).permit(:first_name, :last_name, :contact_number, :email, :profile_photo, :date_of_birth, :permanent_address, :developer_type, :about, :city, :state, :country, :zipcode, :latitude, :longitude, :password, :password_confirmation)
     end
 end
