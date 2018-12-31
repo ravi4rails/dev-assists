@@ -9,6 +9,16 @@
       <li class="nav-item active">
         <a class="nav-link" href="">Home</a>
       </li>
+      <% if developer_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Logout", destroy_developer_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% end %>
+      <% if admin_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
