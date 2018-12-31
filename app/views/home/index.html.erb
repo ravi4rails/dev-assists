@@ -3,15 +3,15 @@
   <div class="col-md-11 mx-md-auto">
     <div class="card mb-3">
       <div class="card-body p-5">
-        <%= form_for :search_developer, url: "#", method: :get do |f| %>
-          <%= f.hidden_field :latitude, id: :latitude %>
-          <%= f.hidden_field :longitude, id: :longitude %>
+        <%= search_form_for @search, url: :root do |f| %>
+          <%#= f.hidden_field :latitude, id: :latitude %>
+          <%#= f.hidden_field :longitude, id: :longitude %>
           <div class="row">
             <div class="col-md-3">
-              <%= f.text_field :skill, class: "form-control", id: :tags, placeholder: "Search by Skill"  %>
+              <%= f.text_field :name_cont, class: "form-control", id: :tags, placeholder: "Search by Skill"  %>
             </div>
             <div class="col-md-7">
-              <%= f.text_field :address, class: "form-control", id: "autocomplete", onFocus: "geolocate()", placeholder: "Search by Location" %>
+              <%#= f.text_field :address, class: "form-control", id: "autocomplete", onFocus: "geolocate()", placeholder: "Search by Location" %>
             </div>
             <div class="col-md-2">
               <%= f.submit "Search", class: "btn btn-primary btn-block" %>
@@ -29,6 +29,30 @@
     </div>
   </div>
 </div>
+
+<% if params[:q].present? && !@skills.nil? %>
+  <% @skills.each do |skill| %>
+    <% skill.developers.each do |developer| %>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card mb-2 mt-2">
+            <div class="row">
+              <div class="col-md-4">
+                <%= image_tag developer.profile_photo.url, style: "width:60px;height:60px;border-radius:50%;border:2px solid #ccc;" %>
+              </div>
+              <div class="col-md-8">
+                <h2><%= developer.first_name %> <%= developer.last_name%></h2>
+                <%= developer.developer_type %><br>
+                <%= developer.email %><br>
+                <%= developer.contact_number %><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <div class="jumbo-site pt-4 pb-4 pl-5 pr-5">
   <div class="text-center">
