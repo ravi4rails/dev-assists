@@ -20,7 +20,8 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <%= f.select :role, options_for_select( selected: @role.article_category_id), { include_blank: "Select Article Category" }, { class: "form-control form-control-alt", required: true } %>
+                <%= f.label :role %>
+                <%= f.text_field :role, class: "form-control" %>
               </div>
             </div>
             <div class="col-md-6">

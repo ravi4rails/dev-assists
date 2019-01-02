@@ -1,0 +1,8 @@
+<div class="container mt-5 mb-5">
+  <%= link_to  admin_questions_path, class: "btn btn-secondary ml-2 pl-3 pr-3" do%>
+    <i class="fa fa-arrow-left mr-2"></i>Back
+  <% end %>
+  <h2 class="text-center">New Question</h2>
+
+  <%= render 'form', question: @question %>
+</div>  

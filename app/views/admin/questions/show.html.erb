@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card mt-5 mb-5">
+    <div class="card-body">
+      <p>
+        <strong>Title:</strong>
+        <%= @question.title %>
+      </p>
+       <p>
+        <strong>Skill:</strong>
+        <%= @question.skill.name %>
+      </p>
+      <%= link_to 'Edit', edit_admin_question_path(@question), class: "btn btn-primary" %> |
+      <%= link_to 'Back', admin_questions_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>      

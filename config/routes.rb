@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :developer do 
     get 'profile/edit' => 'site#developer_profile'
+    patch 'update_profile' => 'site#update_profile'
   end
   
   namespace :admin do
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
     end
     resources :skills
     resources :projects
+    resources :questions
+
   end
 
   root 'home#index'

@@ -1,0 +1,13 @@
+<div class="col-md-6 mx-md-auto mt-5">
+  <%= form_for [:admin, question] do |form| %>
+    
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+     <div><%= form.select :skill_id, options_for_select(skill_list, selected: question.skill_id), { include_blank: "Select Skill" }, { class: "form-control form-control-alt", required: true } %></div>
+    <div class="actions mt-4">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>  
